@@ -1,4 +1,5 @@
-<?php include('config.php') ?>	
+<?php include('config.php') ?>
+<?php session_start() ?>
 <html>
     <head>
         <title></title>
@@ -66,40 +67,114 @@
             <div class="row">
                 <div class="col-md-12 detail">
 
-                    <h3>Well come to User page.</h3>
-                    <form>
-                        <h4>Danh Sách User</h4>
-                        <div class="col-md-6 abc">
-                            <p>Name user :</p>
-                        </div>
-                        <div class="col-md-6 abc">
-                            <p>
-                                <?php
-                                echo $users[1]['username'] . '<br>';
-                                ?>
-                            </p>
-                        </div>
-                        <div class="col-md-6 abc">
-                            <p>Pass user :</p>
-                        </div>
-                        <div class="col-md-6 abc">
-                            <p>
-                                <?php
-                                echo $users[1]['password'] . '<br>';
-                                ?>
-                            </p>
-                        </div>
-                        <div class="col-md-6 abc">
-                            <p>Type user :</p>
-                        </div>
-                        <div class="col-md-6 abc">
-                            <p>
-                                <?php
-                                echo $users[1]['type'] . '<br>';
-                                ?>
-                            </p>
-                        </div>
-                    </form>
+                    <h3>Well come to page Manage User.</h3>
+                    <?php if(empty($_SESSION['x'])): ?>
+                        <?php header('Location: login.php'); ?>
+                    <?php endif;?>
+                    <?php if (!empty($_SESSION['x'])): ?>
+                        <?php if ($_SESSION["x"] == 2): ?>
+                            <form>
+                                <h4>Danh Sách User</h4>
+                                <div class="col-md-6 abc">
+                                    <p>Name user :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[1]['username'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>Pass user :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[1]['password'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>Type user :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[1]['type'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                            </form>
+                        <?php endif; ?>
+                        <?php if ($_SESSION["x"] == 1): ?>
+                            <form>
+                                <h4>Danh Sách Admin</h4>
+                                <div class="col-md-6 abc">
+                                    <p>Name admin :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[0]['username'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>Pass admin :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[0]['password'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>Type admin :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[0]['type'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <h4>Danh Sách User</h4>
+                                <div class="col-md-6 abc">
+                                    <p>Name user :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[1]['username'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>Pass user :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[1]['password'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>Type user :</p>
+                                </div>
+                                <div class="col-md-6 abc">
+                                    <p>
+                                        <?php
+                                        echo $users[1]['type'] . '<br>';
+                                        ?>
+                                    </p>
+                                </div>
+                            </form>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>

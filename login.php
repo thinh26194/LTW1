@@ -6,7 +6,7 @@ if (!empty($_SESSION["x"])) {
     if ($_SESSION["x"] == 2) {
         header('Location: user.php');
     } elseif ($_SESSION["x"] == 1) {
-        header('Location: admin.php');
+        header('Location: user.php');
     } else {
         header('Location: login.php');
     }
@@ -87,7 +87,7 @@ if (!empty($_SESSION["x"])) {
                         if ($value['username'] === $_POST['iduser'] && $value['password'] === $_POST['passuser']) {
                             session_start();
                             $_SESSION["x"] = 1;
-                            header('Location: admin.php');
+                            header('Location: user.php');
                         }
                     }
                 } else if ($_POST['iduser'] === 'user' && $_POST['passuser'] === 'user') {
@@ -106,6 +106,8 @@ if (!empty($_SESSION["x"])) {
                 echo 'Please fill in ID or Password';
             }
             ?>
+
+            
         </form>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></script>
     </body>

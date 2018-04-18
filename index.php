@@ -1,4 +1,4 @@
-
+<?php session_start() ?>
 <html>
     <head>
         <title></title>
@@ -38,8 +38,9 @@
                 color: #CCC;
             }
             .header {
-                background-color: #EEEEEE;
+                background-color: #DDDDDD;
             }
+
         </style>
     </head>
     <body>
@@ -51,8 +52,12 @@
                     </div>
                     <div class="col-md-6">
                         <ul>
-                            <li><a href="login.php">Đăng Nhập</a></li>
-                            <li><a href="logout.php">Đăng Xuất</a></li>
+                            <?php if(empty($_SESSION['x'])): ?>
+                            <li class="dn"><a href="login.php">Đăng Nhập</a></li>
+                            <?php endif; ?>
+                            <?php if(!empty($_SESSION['x'])): ?>
+                            <li class="dx"><a href="logout.php">Đăng Xuất</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
